@@ -17,9 +17,9 @@ fi
 # Export correct version
 if [[ "$@" =~ "beta"* ]]; then
 	export TYPE=beta
-	export VERSION="Alcor-BETA-${RELEASE_VERSION}-rc${DRONE_BUILD_NUMBER}-${RELEASE_CODENAME}"
+	export VERSION="Alcor-HMP-BETA-${RELEASE_VERSION}-rc${DRONE_BUILD_NUMBER}-${RELEASE_CODENAME}"
 	# Be careful if something changes LOCALVERSION line
-        sed -i "50s/.*/CONFIG_LOCALVERSION=\"-Alcor-${RELEASE_VERSION}-rc${DRONE_BUILD_NUMBER}-${RELEASE_CODENAME}\"/g" arch/arm64/configs/acrux_defconfig
+        sed -i "50s/.*/CONFIG_LOCALVERSION=\"-Alcor-HMP-${RELEASE_VERSION}-rc${DRONE_BUILD_NUMBER}-${RELEASE_CODENAME}\"/g" arch/arm64/configs/acrux_defconfig
 	export INC="$(echo ${RC} | grep -o -E '[0-9]+')"
 	INC="$((INC + 1))"
 	sed -i "2s/.*/rc$INC/g" CURRENTVERSION
@@ -27,7 +27,7 @@ else
 	export TYPE=stable
 	export VERSION="Alcor-Stable-${RELEASE_VERSION}-${RELEASE_CODENAME}"
         # Be careful if something changes LOCALVERSION line
-        sed -i "50s/.*/CONFIG_LOCALVERSION=\"-Alcor-${RELEASE_VERSION}-${RELEASE_CODENAME}\"/g" arch/arm64/configs/acrux_defconfig
+        sed -i "50s/.*/CONFIG_LOCALVERSION=\"-Alcor-HMP-${RELEASE_VERSION}-${RELEASE_CODENAME}\"/g" arch/arm64/configs/acrux_defconfig
 fi
 
 export ZIPNAME="${VERSION}.zip"

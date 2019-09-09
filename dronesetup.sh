@@ -1,7 +1,7 @@
 #!/bin/bash
 cd ..
 
-git clone https://github.com/nysadev/acrux-ak3 -b alcor anykernel
+git clone https://github.com/nysadev/acrux-ak3 -b alcorhmp anykernel
 
 if [[ "$@" =~ "clang"* ]]; then
 	git clone https://github.com/RaphielGang/aarch64-linux-gnu-8.x.git --depth=1 gcc
