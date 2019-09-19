@@ -16,7 +16,7 @@ fi
 
 # Export correct version
 if [[ "$@" =~ "beta"* ]]; then
-	export TYPE=beta
+	export TYPE=beta-rebasea10
 	export VERSION="Acrux-BETA-${RELEASE_VERSION}-rc${DRONE_BUILD_NUMBER}-${RELEASE_CODENAME}"
 	# Be careful if something changes LOCALVERSION line
         sed -i "50s/.*/CONFIG_LOCALVERSION=\"-Acrux-${RELEASE_VERSION}-rc${DRONE_BUILD_NUMBER}-${RELEASE_CODENAME}\"/g" arch/arm64/configs/acrux_defconfig
@@ -39,7 +39,7 @@ if [[ -z "${KEBABS}" ]]; then
 fi
 
 # Post to CI channel
-curl -s -X POST https://api.telegram.org/bot${BOT_API_KEY}/sendMessage -d text="Kernel: <code>Acrux Kernel</code>
+curl -s -X POST https://api.telegram.org/bot${BOT_API_KEY}/sendMessage -d text="Kernel: <code>Acrux Kernel (Android 10)</code>
 Type: <code>${TYPE}</code>
 Device: <code>MI 8 Lite (platina)</code>
 Compiler: <code>${COMPILER}</code>
