@@ -37,3 +37,6 @@ echo "    PATH="$HOME/.platform_tools/platform-tools:$PATH"" >> ~/.profile
 echo "fi" >> ~/.profile
 source ~/.profile
 rm ~/tools.zip
+
+# Source our bashrc just so our aliases take effect
+source ~/.bashrc
